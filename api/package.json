@@ -8,6 +8,7 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
+    "dev": "nest start --watch",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/src/main",
@@ -21,13 +22,12 @@
     "prisma:migrate": "prisma migrate dev",
     "prisma:reset": "prisma migrate reset",
     "prisma:studio": "prisma studio",
-    "prisma:seed": "prisma db seed"
+    "prisma:seed": "prisma db seed",
+    "postinstall": "prisma generate"
   },
   "engines": {
-    "npm": ">=10.0.0",
     "node": ">=24.0.0"
   },
-  "packageManager": "pnpm@10.28.1",
   "dependencies": {
     "@nestjs/common": "^11.0.17",
     "@nestjs/config": "^4.0.2",
@@ -97,17 +97,6 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@nestjs/core",
-      "@prisma/client",
-      "@prisma/engines",
-      "@swc/core",
-      "bcrypt",
-      "esbuild",
-      "prisma"
-    ]
   },
   "prisma": {
     "seed": "ts-node prisma/seeds/index.ts"
